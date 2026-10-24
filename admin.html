@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | HCM Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="auth-pending">
+  <div class="app" id="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div id="overlay" class="overlay"></div>
+    <div class="main">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <div id="todayBanner" class="notice" hidden></div>
+        <section class="stat-grid" id="statGrid" aria-label="Today at a glance"></section>
+        <div class="grid-2">
+          <section class="card">
+            <div class="card-head"><h2>Recent attendance</h2></div>
+            <div id="recentAttendance"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><h2>Pending leave requests</h2><a class="link" href="leaves.html">Review requests</a></div>
+            <div id="pendingLeaves"></div>
+          </section>
+        </div>
+        <div class="grid-2">
+          <section class="card">
+            <div class="card-head"><h2>Departments</h2></div>
+            <div id="departmentSummary"></div>
+          </section>
+          <section class="card" aria-labelledby="announceTitle">
+            <div class="card-head"><h2 id="announceTitle">Announcements</h2></div>
+            <form id="announcementForm" novalidate>
+              <div class="field"><label for="annTitle">Title</label><input id="annTitle" type="text" maxlength="80"><span class="field-error" id="annTitleError"></span></div>
+              <div class="field"><label for="annMessage">Message</label><textarea id="annMessage" maxlength="600"></textarea><span class="field-error" id="annMessageError"></span></div>
+              <button class="btn btn-primary" type="submit">Post announcement</button>
+            </form>
+            <div id="announcementList" style="margin-top:16px"></div>
+          </section>
+        </div>
+        <section class="card" aria-labelledby="chatTitle">
+          <div class="card-head"><div><h2 id="chatTitle">HCM Helper</h2><p>Answers come from your saved data. No AI service is used.</p></div></div>
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+          <div id="chatChips" class="chips"></div>
+          <form id="chatForm" class="chat-form" autocomplete="off">
+            <label for="chatInput" class="sr-only">Ask a question</label>
+            <input id="chatInput" type="text" placeholder="Type a question...">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/storage.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/employees.js"></script>
+  <script src="js/leave.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/payroll.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My dashboard | HCM Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="auth-pending">
+  <div class="app" id="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div id="overlay" class="overlay"></div>
+    <div class="main">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <section class="card today-card" aria-labelledby="todayTitle">
+          <div>
+            <small id="todayDate"></small>
+            <h2 id="todayTitle">Today</h2>
+            <div class="today-status" id="todayStatus" aria-live="polite"></div>
+          </div>
+          <div class="today-actions">
+            <button type="button" class="btn btn-primary" id="checkInBtn"></button>
+            <button type="button" class="btn btn-ghost" id="checkOutBtn"></button>
+          </div>
+        </section>
+        <section class="stat-grid" id="employeeStats" aria-label="My summary"></section>
+        <div class="grid-2">
+          <section class="card">
+            <div class="card-head"><h2>My attendance</h2></div>
+            <div id="myAttendance"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><h2>My leave</h2><a class="btn btn-primary btn-small" href="leaves.html">Apply for leave</a></div>
+            <div id="myLeaveSummary"></div>
+          </section>
+        </div>
+        <div class="grid-2">
+          <section class="card">
+            <div class="card-head"><h2>Announcements</h2></div>
+            <div id="announcementList"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><h2>Payslip</h2></div>
+            <p class="muted" style="margin-bottom:14px">See your salary, deductions and net pay for any month, and print or save it as a PDF.</p>
+            <a class="btn btn-ghost" href="payslip.html">Open my payslip</a>
+          </section>
+        </div>
+        <section class="card" aria-labelledby="chatTitle">
+          <div class="card-head"><div><h2 id="chatTitle">HCM Helper</h2><p>Answers come from your saved data. No AI service is used.</p></div></div>
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+          <div id="chatChips" class="chips"></div>
+          <form id="chatForm" class="chat-form" autocomplete="off">
+            <label for="chatInput" class="sr-only">Ask a question</label>
+            <input id="chatInput" type="text" placeholder="Type a question...">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </section>
+        <section class="card" aria-labelledby="pwTitle">
+          <div class="card-head"><div><h2 id="pwTitle">Change password</h2><p>Use at least 8 characters with a letter and a number.</p></div></div>
+          <form id="changePasswordForm" novalidate>
+            <div class="field"><label for="pwCurrent">Current password</label><input id="pwCurrent" type="password" autocomplete="current-password"><span class="field-error" id="pwCurrentError"></span></div>
+            <div class="form-row">
+              <div class="field"><label for="pwNew">New password</label><input id="pwNew" type="password" autocomplete="new-password"><span class="field-error" id="pwNewError"></span></div>
+              <div class="field"><label for="pwConfirm">Confirm new password</label><input id="pwConfirm" type="password" autocomplete="new-password"><span class="field-error" id="pwConfirmError"></span></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Update password</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/storage.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/employees.js"></script>
+  <script src="js/leave.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/payroll.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/employee-page.js"></script>
+</body>
+</html>

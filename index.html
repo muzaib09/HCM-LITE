@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | HCM Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="auth-body">
+  <button type="button" class="icon-btn auth-theme" id="themeToggle"></button>
+  <div class="auth-layout">
+    <section class="auth-intro" aria-label="About HCM Lite">
+      <div class="brand"><span class="brand-mark" id="brandMark"></span><div><strong>HCM Lite</strong><small>Human capital management</small></div></div>
+      <h1>Attendance, leave and payslips in one place</h1>
+      <p>Set up your company, add your team, and let HCM Lite work out lateness, absences and monthly pay from the records you save.</p>
+      <ul class="auth-points">
+        <li><span id="pointIcon1"></span><div><strong>Daily check-in and check-out</strong>Late and half-day rules follow your office hours.</div></li>
+        <li><span id="pointIcon2"></span><div><strong>Leave with approvals</strong>Balances count working days and approved leave only.</div></li>
+        <li><span id="pointIcon3"></span><div><strong>Printable monthly payslips</strong>Deductions come straight from attendance.</div></li>
+      </ul>
+    </section>
+
+    <main class="auth-panel">
+      <!-- First visit: create the company and the admin -->
+      <section class="card auth-card" id="setupCard" hidden aria-labelledby="setupTitle">
+        <h2 id="setupTitle">Set up your company</h2>
+        <p>Create the company and its first administrator account.</p>
+        <form id="setupForm" novalidate>
+          <div class="field"><label for="setupCompanyName">Company name</label><input id="setupCompanyName" type="text" autocomplete="organization"><span class="field-error" id="setupCompanyNameError"></span></div>
+          <div class="field"><label for="setupName">Admin name</label><input id="setupName" type="text" autocomplete="name"><span class="field-error" id="setupNameError"></span></div>
+          <div class="field"><label for="setupEmail">Admin email</label><input id="setupEmail" type="email" autocomplete="email"><span class="field-error" id="setupEmailError"></span></div>
+          <div class="form-row">
+            <div class="field"><label for="setupPassword">Password</label><input id="setupPassword" type="password" autocomplete="new-password"><span class="field-error" id="setupPasswordError"></span></div>
+            <div class="field"><label for="setupConfirm">Confirm password</label><input id="setupConfirm" type="password" autocomplete="new-password"><span class="field-error" id="setupConfirmError"></span></div>
+          </div>
+          <p class="hint" style="margin-bottom:14px">Use at least 8 characters with a letter and a number.</p>
+          <button class="btn btn-primary btn-block" type="submit" id="setupBtn">Create company</button>
+        </form>
+        <p class="auth-warning">Learning project: data stays in this browser's localStorage and is not secure. Do not store real, sensitive HR data here.</p>
+      </section>
+
+      <!-- After setup: log in -->
+      <section class="card auth-card" id="loginCard" hidden aria-labelledby="loginTitle">
+        <h2 id="loginTitle">Welcome back</h2>
+        <p id="loginSubtitle">Log in to continue.</p>
+        <form id="loginForm" novalidate>
+          <div class="field"><label for="loginEmail">Email</label><input id="loginEmail" type="email" autocomplete="username"><span class="field-error" id="loginEmailError"></span></div>
+          <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password"><span class="field-error" id="loginPasswordError"></span></div>
+          <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Log in</button>
+        </form>
+        <p class="auth-warning">Learning project: data stays in this browser's localStorage and is not secure. Do not store real, sensitive HR data here.</p>
+      </section>
+    </main>
+  </div>
+  <script src="js/storage.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/pages/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings | HCM Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="auth-pending">
+  <div class="app" id="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div id="overlay" class="overlay"></div>
+    <div class="main">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <section class="card" aria-labelledby="companyTitle">
+          <div class="card-head"><div><h2 id="companyTitle">Company settings</h2><p>New settings apply from now on. Saved attendance, leave requests and their statuses are not rewritten.</p></div></div>
+          <form id="settingsForm" novalidate>
+            <div class="field"><label for="setCompanyName">Company name</label><input id="setCompanyName" type="text"><span class="field-error" id="setCompanyNameError"></span></div>
+            <div class="form-row">
+              <div class="field"><label for="setOfficeStart">Office start time</label><input id="setOfficeStart" type="time"><span class="field-error" id="setOfficeStartError"></span></div>
+              <div class="field"><label for="setGraceMinutes">Grace minutes</label><input id="setGraceMinutes" type="number" min="0" max="180" step="1"><span class="hint">Check-ins after start time + grace are marked Late.</span><span class="field-error" id="setGraceMinutesError"></span></div>
+            </div>
+            <div class="field"><label for="setLeaveQuota">Yearly leave quota (working days)</label><input id="setLeaveQuota" type="number" min="1" max="365" step="1"><span class="field-error" id="setLeaveQuotaError"></span></div>
+            <fieldset class="field" id="setWeekendDays" aria-describedby="setWeekendDaysError">
+              <legend>Weekend / days off</legend>
+              <div class="checks" id="weekendChecks"></div>
+              <span class="field-error" id="setWeekendDaysError"></span>
+            </fieldset>
+            <button class="btn btn-primary" type="submit">Save settings</button>
+          </form>
+        </section>
+        <section class="card" aria-labelledby="pwTitle">
+          <div class="card-head"><div><h2 id="pwTitle">Change password</h2><p>Use at least 8 characters with a letter and a number.</p></div></div>
+          <form id="changePasswordForm" novalidate>
+            <div class="field"><label for="pwCurrent">Current password</label><input id="pwCurrent" type="password" autocomplete="current-password"><span class="field-error" id="pwCurrentError"></span></div>
+            <div class="form-row">
+              <div class="field"><label for="pwNew">New password</label><input id="pwNew" type="password" autocomplete="new-password"><span class="field-error" id="pwNewError"></span></div>
+              <div class="field"><label for="pwConfirm">Confirm new password</label><input id="pwConfirm" type="password" autocomplete="new-password"><span class="field-error" id="pwConfirmError"></span></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Update password</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/storage.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/employees.js"></script>
+  <script src="js/leave.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/payroll.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/settings-page.js"></script>
+</body>
+</html>
